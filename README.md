@@ -11,8 +11,8 @@ The module consists in two components:
 *     Share component: Allows to show the extracted information for each document and perform faceted search over such information
 
 ## Dependencies
-* Alfresco 4.2
-* RedLink Java SDK 1.0.0-ALPHA-SNAPSHOT must be in your local maven repository in order to build the module successfully
+* Alfresco >=4.2
+* [RedLink Java SDK](http://dev.redlink.io/sdk#java-installation) >=1.0.0-BETA installed in your local maven repository in order to build the module successfully
 
 ## Installation
 * Execute the `mvn clean install` command in the root directory of the project
