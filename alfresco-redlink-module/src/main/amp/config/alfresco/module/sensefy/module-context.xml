@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    This file is part of Alfresco RedLink Module.
+
+    Alfresco RedLink Module is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Alfresco RedLink Module is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Alfresco RedLink Module.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+	<import resource="classpath:alfresco/module/sensefy/sensefy-model-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy/sensefy-action-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy/sensefy-search-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy/sensefy-script-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy/sensefy-services-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy/sensefy-policies-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy/sensefy-webscripts-context.xml" />
+
+	<bean id="sensefy.resourceBundles" class="org.alfresco.i18n.ResourceBundleBootstrapComponent">
+      <property name="resourceBundles">
+         <list>
+    	    <value>alfresco.extension.messages.sensefy-action-config</value>
+    	 </list>
+      </property>
+   </bean>
+   
+	<bean id="sensefy.configBootstrap" class="org.alfresco.web.config.WebClientConfigBootstrap" init-method="init">
+		<property name="configs">
+			<list>
+				<value>classpath:alfresco/module/sensefy/web-client-config-custom.xml</value>
+			</list>
+		</property>
+	</bean>
+</beans>

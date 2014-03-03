@@ -1,0 +1,62 @@
+<!--
+
+    This file is part of Share RedLink Module.
+
+    Share RedLink Module is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Share RedLink Module is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Share RedLink Module.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<alfresco-config>
+<!-- 
+	<config replace="true">
+		<flags>
+			<client-debug>true</client-debug>
+			<client-debug-autologging>false</client-debug-autologging>
+		</flags>
+	</config>
+ -->
+	<config evaluator="aspect" condition="sensefy:enhanced">
+		<forms>
+			<form>
+				<field-visibility>
+					<show id="sensefy:enhanced_languages" />
+				</field-visibility>
+				<appearance>
+					<field id="sensefy:enhanced_languages" label-id="label.languages" />
+				</appearance>
+			</form>
+		</forms>
+	</config>
+	
+	<!-- Document Library config section -->
+   <config evaluator="string-compare" condition="DocumentLibrary">
+      <aspects>
+         <!-- Aspects that a user can see -->
+         <visible>
+            <aspect name="sensefy:enhanced" />
+         </visible>
+      </aspects>
+   </config>
+   
+	<config>
+		<forms>
+			<dependencies>
+				<js src="/js/jquery-1.8.2.js" />
+				<js src="/js/jquery-ui.1.9.2.js" />
+				<css src="/css/jquery-ui.min.css" />
+				<css src="/css/jquery.ui.all.css" />
+			</dependencies>
+		</forms>
+	</config>
+
+</alfresco-config>

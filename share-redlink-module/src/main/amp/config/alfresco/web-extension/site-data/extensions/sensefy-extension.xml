@@ -1,0 +1,23 @@
+<extension>
+	<modules>
+		<module>
+			<id>Sensefy document details extension</id>
+			<auto-deploy>true</auto-deploy>
+			<components>
+				<component>
+					<scope>template</scope>
+					<region-id>document-metadata</region-id>
+					<source-id>document-details</source-id>
+					<sub-components>
+						<sub-component id="sensefy-doc-semantic-document-details-extension" index="100">
+							<url>/semantic/components/entities</url>
+						</sub-component>
+						<sub-component id="sensefy-doc-related-document-details-extension" index="110">
+							<url>/semantic/components/related</url>
+						</sub-component>
+					</sub-components>
+				</component>
+			</components>
+		</module>
+	</modules>
+</extension>

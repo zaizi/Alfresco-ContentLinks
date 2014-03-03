@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    This file is part of Alfresco RedLink Module.
+
+    Alfresco RedLink Module is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Alfresco RedLink Module is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Alfresco RedLink Module.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+	<!-- Abstract utility bean -->
+	<bean id="sensefy.abstractService" class="org.zaizi.alfresco.redlink.service.SemanticAbstractService"
+		abstract="true">
+		<property name="serviceRegistry">
+			<ref bean="ServiceRegistry" />
+		</property>
+	</bean>
+
+	<bean id="RedLinkEnhancerJob" class="org.zaizi.alfresco.redlink.job.RedLinkEnhancerJob"
+			init-method="startJob">
+		<property name="serviceRegistry" ref="ServiceRegistry" />
+		<property name="scheduler" ref="schedulerFactory" />
+		<property name="enhancerService" ref="sensefy.enhancerService" />
+		<property name="repositoryState" ref="repositoryState" />
+		<property name="cronExpression" value="${redlink.enhancer.cronExpression}" />
+		<property name="numberOfDocumentsToProcess" value="${redlink.enhancer.numberOfDocumentsToProcess}" />
+	</bean>
+
+	<!-- RedLink enhancer service -->
+	<bean id="sensefy.enhancerService"
+		class="org.zaizi.alfresco.redlink.service.redlink.RedLinkEnhancerServiceImpl"
+		parent="sensefy.abstractService" init-method="init">
+		<property name="confidenceThreshold">
+			<value>${sensefy.redlink.entityhub.confidence}</value>
+		</property>
+		<property name="redlinkAPIKey">
+			<value>${sensefy.redlink.apiKey}</value>
+		</property>
+		<property name="redlinkAPIVersion">
+			<value>${sensefy.redlink.apiVersion}</value>
+		</property>
+		<property name="redlinkAnalysisName">
+			<value>${sensefy.redlink.analysisName}</value>
+		</property>
+		<property name="entityTypeExtractor">
+			<ref bean="sensefy.entityTypeExtractor" />
+		</property>
+		<property name="behaviourFilter">
+			<ref bean="policyBehaviourFilter" />
+		</property>
+	</bean>
+
+	<bean id="sensefy.entityTypeExtractor" class="org.zaizi.alfresco.redlink.util.EntityTypeExtractor"
+		init-method="init">
+		<property name="entityTypes">
+			<value>${sensefy.redlink.extract.entity.types}</value>
+		</property>
+		<property name="properties">
+			<ref bean="global-properties" />
+		</property>
+	</bean>
+
+</beans>

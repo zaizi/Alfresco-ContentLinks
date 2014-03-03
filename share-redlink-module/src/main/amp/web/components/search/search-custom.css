@@ -1,0 +1,57 @@
+/**
+ * This file is part of Share RedLink Module.
+ *
+ * Share RedLink Module is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Share RedLink Module is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Share RedLink Module.  If not, see <http://www.gnu.org/licenses/>.
+ */
+.search .results {
+	float: right;
+	width: 84%;
+	border-left: 1px solid #D7D7D7;
+}
+
+.search .facets {
+	margin-right: 1px;
+	float: left;
+	width: 15%;
+}
+
+.search .facets h3 {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 1em;
+}
+
+.search .facets li {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-left: 1.5em;
+}
+
+.search .facets li span {
+	cursor: pointer;
+}
+
+.search .sparql table thead {
+	display: table-header-group;
+}
+
+.facetText{
+	width: 72px;
+	font-size: 12px;
+	/*color: #C43187;*/
+}
+
+.ui-datepicker{
+	font-size: 0.7em;
+}

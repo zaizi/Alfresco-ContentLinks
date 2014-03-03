@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    This file is part of Alfresco RedLink Module.
+
+    Alfresco RedLink Module is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Alfresco RedLink Module is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Alfresco RedLink Module.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+	<bean id="sensefy.sensefySolrQueryHTTPCLient"
+		class="org.zaizi.alfresco.redlink.service.search.solr.SensefySolrQueryHTTPClient"
+		init-method="init">
+		<property name="nodeService">
+			<ref bean="mlAwareNodeService" />
+		</property>
+		<property name="nodeDAO">
+			<ref bean="nodeDAO" />
+		</property>
+		<property name="permissionService">
+			<ref bean="permissionService" />
+		</property>
+		<property name="repositoryState">
+			<ref bean="repositoryState" />
+		</property>
+		<property name="host" value="${sensefy.api.endpoint.host}" />
+		<property name="port" value="${sensefy.api.endpoint.port}" />
+		<property name="sensefySearchEndpoint" value="${sensefy.api.endpoint.path}" />
+	</bean>
+</beans>	
+    

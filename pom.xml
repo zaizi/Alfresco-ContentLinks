@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.zaizi</groupId>
+	<artifactId>alfresco-redlink</artifactId>
+	<version>1.6-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Alfresco RedLink Parent</name>
+	<description>Alfresco RedLink Parent Project POM</description>
+
+	<organization>
+		<name>Zaizi Ltd.</name>
+		<url>http://www.zaizi.com</url>
+	</organization>
+
+	<scm>
+		<url>https://dev.zaizi.org/svn/sensefy/branches/alfresco-redlink</url>
+		<connection>scm:svn:https://dev.zaizi.com/svn/sensefy/branches/alfresco-redlink</connection>
+		<developerConnection>scm:svn:https://dev.zaizi.com/svn/sensefy/branches/alfresco-redlink</developerConnection>
+	</scm>
+
+	<modules>
+		<module>alfresco-redlink-module</module>
+		<module>share-redlink-module</module>
+	</modules>
+
+	<!-- Deployment repositories -->
+	<distributionManagement>
+		<repository>
+			<id>zaizi-releases</id>
+			<name>Zaizi Releases</name>
+			<url>https://maven.zaizi.org/content/repositories/zaizi-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>zaizi-snapshots</id>
+			<name>Zaizi Snapshots</name>
+			<url>https://maven.zaizi.org/content/repositories/zaizi-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This file is part of Alfresco RedLink Module.
+
+    Alfresco RedLink Module is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Alfresco RedLink Module is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Alfresco RedLink Module.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<model name="sensefy:contentmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<description>Sensefy Content Model</description>
+	<author>Zaizi Ltd</author>
+	<version>1.0</version>
+
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+
+	<namespaces>
+		<namespace uri="http://www.zaizi.org/model/sensefy/1.0" prefix="sensefy" />
+	</namespaces>
+
+	<types>
+		<type name="sensefy:concept">
+			<title>Concept</title>
+			<parent>cm:cmobject</parent>
+		</type>
+
+		<type name="sensefy:sparql_search">
+			<title>SPARQL Search</title>
+			<parent>cm:cmobject</parent>
+		</type>
+
+		<type name="sensefy:annotated_html">
+			<title>Annotated HTML</title>
+			<parent>cm:content</parent>
+		</type>
+		
+	</types>
+
+	<aspects>
+		<aspect name="sensefy:enhanced">
+			<title>Content enhanced</title>
+			<properties>
+				<property name="sensefy:enhanced_languages">
+					<title>Languages</title>
+					<type>d:text</type>
+					<multiple>true</multiple>
+				</property>
+				<property name="sensefy:enhanced_processed">
+					<title>Status Enhanced</title>
+					<type>d:boolean</type>
+					<default>false</default>
+				</property>
+				<property name="sensefy:entity_uris">
+					<title>Entity URIS</title>
+					<type>d:text</type>
+					<multiple>true</multiple>
+				</property>
+			</properties>
+		</aspect>
+		
+		<aspect name="sensefy:faceted">
+			<title>Content factets data</title>
+			<properties>
+				<property name="sensefy:organizations">
+					<title>Organizations</title>
+					<type>d:text</type>
+					<multiple>true</multiple>
+				</property>
+				<property name="sensefy:people">
+					<title>People</title>
+					<type>d:text</type>
+					<multiple>true</multiple>
+				</property>
+				<property name="sensefy:places">
+					<title>Places</title>
+					<type>d:text</type>
+					<multiple>true</multiple>
+				</property>
+			</properties>
+		</aspect>
+		
+		<aspect name="sensefy:uriable">
+			<title>URI properties</title>
+			<properties>
+				<property name="sensefy:uri">
+					<title>Entity URI</title>
+					<type>d:text</type>
+					<multiple>false</multiple>
+				</property>
+				<property name="sensefy:label">
+					<title>Entity Label</title>
+					<type>d:mltext</type>
+					<multiple>false</multiple>
+				</property>
+				<property name="sensefy:thumbnail">
+					<title>Entity thumbnail URL</title>
+					<type>d:text</type>
+					<multiple>false</multiple>
+				</property>
+				<property name="sensefy:abstract">
+					<title>Entity abstract</title>
+					<type>d:mltext</type>
+					<multiple>false</multiple>
+				</property>
+				<property name="sensefy:types">
+					<title>Entity types</title>
+					<type>d:text</type>
+					<multiple>true</multiple>
+				</property>
+			</properties>
+		</aspect>
+		
+	</aspects>
+</model>
