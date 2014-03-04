@@ -28,10 +28,10 @@
 		<alfresco.client.war>alfresco</alfresco.client.war>
 		<alfresco.client.war.groupId>org.alfresco.enterprise</alfresco.client.war.groupId>
 		<alfresco.client.war.version>4.2.0</alfresco.client.war.version>
-		<env>local</env>
-		<redlink.version>1.0.0-ALPHA-SNAPSHOT</redlink.version>
+		<redlink.version>1.0.0-BETA</redlink.version>
 		<maven.plugin.war.version>2.4</maven.plugin.war.version>
 		<packaging.type>amp</packaging.type>
+		<env>local</env>
 	</properties>
 
 	<dependencyManagement>
@@ -45,6 +45,13 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>redlink</id>
+			<url>http://repo.dev.redlink.io/content/repositories/public-releases</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<!-- Alfresco Dependencies -->
