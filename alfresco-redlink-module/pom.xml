@@ -48,6 +48,10 @@
 
 	<repositories>
 		<repository>
+			<id>alfresco</id>
+			<url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+		</repository>
+		<repository>
 			<id>redlink</id>
 			<url>http://repo.dev.redlink.io/content/repositories/public-releases</url>
 		</repository>
