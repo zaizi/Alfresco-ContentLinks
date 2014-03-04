@@ -30,12 +30,12 @@
 	<parent>
 		<groupId>org.alfresco.maven</groupId>
 		<artifactId>alfresco-sdk-parent</artifactId>
-		<version>1.0.2</version>
+		<version>1.1.1</version>
 	</parent>
 
 	<properties>
 		<alfresco.groupId>org.alfresco</alfresco.groupId>
-		<alfresco.version>4.2.0</alfresco.version>
+		<alfresco.version>4.2.e</alfresco.version>
 		<app.log.root.level>WARN</app.log.root.level>
 		<alfresco.data.location>alf_data_dev</alfresco.data.location>
 		<alfresco.client.war>share</alfresco.client.war>

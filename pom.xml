@@ -15,9 +15,9 @@
 	</organization>
 
 	<scm>
-		<url>https://dev.zaizi.org/svn/sensefy/branches/alfresco-redlink</url>
-		<connection>scm:svn:https://dev.zaizi.com/svn/sensefy/branches/alfresco-redlink</connection>
-		<developerConnection>scm:svn:https://dev.zaizi.com/svn/sensefy/branches/alfresco-redlink</developerConnection>
+		<url>https://github.com/zaizi/Alfresco-ContentLinks</url>
+		<connection>scm:git:https://github.com/zaizi/Alfresco-ContentLinks</connection>
+		<developerConnection>scm:git:https://github.com/zaizi/Alfresco-ContentLinks</developerConnection>
 	</scm>
 
 	<modules>
@@ -38,4 +38,5 @@
 			<url>https://maven.zaizi.org/content/repositories/zaizi-snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+
 </project>
