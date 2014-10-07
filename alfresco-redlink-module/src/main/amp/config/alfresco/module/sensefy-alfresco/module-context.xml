@@ -20,13 +20,13 @@
 <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
 
 <beans>
-	<import resource="classpath:alfresco/module/sensefy/sensefy-model-context.xml" />
-	<import resource="classpath:alfresco/module/sensefy/sensefy-action-context.xml" />
-	<import resource="classpath:alfresco/module/sensefy/sensefy-search-context.xml" />
-	<import resource="classpath:alfresco/module/sensefy/sensefy-script-context.xml" />
-	<import resource="classpath:alfresco/module/sensefy/sensefy-services-context.xml" />
-	<import resource="classpath:alfresco/module/sensefy/sensefy-policies-context.xml" />
-	<import resource="classpath:alfresco/module/sensefy/sensefy-webscripts-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy-alfresco/sensefy-model-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy-alfresco/sensefy-action-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy-alfresco/sensefy-search-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy-alfresco/sensefy-script-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy-alfresco/sensefy-services-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy-alfresco/sensefy-policies-context.xml" />
+	<import resource="classpath:alfresco/module/sensefy-alfresco/sensefy-webscripts-context.xml" />
 
 	<bean id="sensefy.resourceBundles" class="org.alfresco.i18n.ResourceBundleBootstrapComponent">
       <property name="resourceBundles">
@@ -39,7 +39,7 @@
 	<bean id="sensefy.configBootstrap" class="org.alfresco.web.config.WebClientConfigBootstrap" init-method="init">
 		<property name="configs">
 			<list>
-				<value>classpath:alfresco/module/sensefy/web-client-config-custom.xml</value>
+				<value>classpath:alfresco/module/sensefy-alfresco/web-client-config-custom.xml</value>
 			</list>
 		</property>
 	</bean>

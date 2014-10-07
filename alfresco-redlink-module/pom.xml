@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This file is part of Alfresco RedLink Module. Alfresco RedLink Module is free software: you can redistribute it and/or modify it under the 
-	terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) 
-	any later version. Alfresco RedLink Module is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied 
-	warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. You should have 
-	received a copy of the GNU Affero General Public License along with Alfresco RedLink Module. If not, see <http://www.gnu.org/licenses/>. -->
+<!-- This file is part of Alfresco RedLink Module. Alfresco RedLink Module 
+	is free software: you can redistribute it and/or modify it under the terms 
+	of the GNU Affero General Public License as published by the Free Software 
+	Foundation, either version 3 of the License, or (at your option) any later 
+	version. Alfresco RedLink Module is distributed in the hope that it will 
+	be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General 
+	Public License for more details. You should have received a copy of the GNU 
+	Affero General Public License along with Alfresco RedLink Module. If not, 
+	see <http://www.gnu.org/licenses/>. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -22,13 +27,13 @@
 
 	<properties>
 		<alfresco.groupId>org.alfresco</alfresco.groupId>
-		<alfresco.version>4.2.e</alfresco.version>
+		<alfresco.version>4.2.f</alfresco.version>
 		<app.log.root.level>WARN</app.log.root.level>
 		<alfresco.data.location>alf_data_dev</alfresco.data.location>
 		<alfresco.client.war>alfresco</alfresco.client.war>
-		<alfresco.client.war.groupId>org.alfresco.enterprise</alfresco.client.war.groupId>
-		<alfresco.client.war.version>4.2.0</alfresco.client.war.version>
-		<redlink.version>1.0.0-BETA</redlink.version>
+		<alfresco.client.war.groupId>org.alfresco</alfresco.client.war.groupId>
+		<alfresco.client.war.version>4.2.f</alfresco.client.war.version>
+	        <redlink.version>1.0.2-BETA</redlink.version>
 		<maven.plugin.war.version>2.4</maven.plugin.war.version>
 		<packaging.type>amp</packaging.type>
 		<env>local</env>
@@ -52,6 +57,10 @@
 			<url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
 		</repository>
 		<repository>
+			<id>alfresco-snapshots</id>
+			<url>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots</url>
+		</repository>
+		<repository>
 			<id>redlink</id>
 			<url>http://repo.dev.redlink.io/content/repositories/public-releases</url>
 		</repository>
@@ -63,6 +72,14 @@
 			<groupId>${alfresco.groupId}</groupId>
 			<artifactId>alfresco-repository</artifactId>
 			<version>${alfresco.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -82,6 +99,7 @@
 			<groupId>io.redlink</groupId>
 			<artifactId>redlink-sdk-java</artifactId>
 			<version>${redlink.version}</version>
+			<classifier>patched</classifier>
 			<exclusions>
 				<!-- Excluding all -->
 				<exclusion>
@@ -120,6 +138,30 @@
 					<groupId>org.apache.httpcomponents</groupId>
 					<artifactId>httpcore</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-httpclient</artifactId>
+					<groupId>commons-httpclient</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-core-asl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-mapper-asl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-codec</artifactId>
+					<groupId>commons-codec</groupId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<!-- Adding Guava 12 needed for Alfresco -->
@@ -140,10 +182,12 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
-	<!-- Alfresco workaround for guava conflic with old google-collections and other libraries like httpclient -->
+	<!-- Alfresco workaround for guava conflic with old google-collections and 
+		other libraries like httpclient -->
 	<build>
 		<plugins>
 			<plugin>
@@ -156,6 +200,22 @@
 						</goals>
 						<configuration>
 							<artifactItems>
+								<artifactItem>
+									<groupId>org.slf4j</groupId>
+									<artifactId>slf4j-api</artifactId>
+									<version>1.7.5</version>
+									<type>jar</type>
+									<outputDirectory>${project.build.directory}/${project.artifactId}/lib</outputDirectory>
+									<destFileName>aaa_slf4j-api-1.7.5.jar</destFileName>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.slf4j</groupId>
+									<artifactId>slf4j-log4j12</artifactId>
+									<version>1.7.5</version>
+									<type>jar</type>
+									<outputDirectory>${project.build.directory}/${project.artifactId}/lib</outputDirectory>
+									<destFileName>aaa_slf4j-log4j12-1.7.5.jar</destFileName>
+								</artifactItem>
 								<artifactItem>
 									<groupId>com.google.guava</groupId>
 									<artifactId>guava</artifactId>
@@ -185,8 +245,8 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- IMPORTANT: Be careful because add the header license at the first line inside javascript files (server side) with imports, broken the 
-				file. -->
+			<!-- IMPORTANT: Be careful because add the header license at the first 
+				line inside javascript files (server side) with imports, broken the file. -->
 			<plugin>
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -254,9 +314,11 @@
 									<targetPath>WEB-INF/classes</targetPath>
 								</resource>
 							</webResources>
-							<!-- Here is can control the order of overlay of your (WAR, AMP, etc.) dependencies | NOTE: At least one WAR dependency must be uncompressed 
-								first | NOTE: In order to have a dependency effectively added to the WAR you need to | explicitly mention it in the overlay section. | NOTE: 
-								First-win resource strategy is used by the WAR plugin -->
+							<!-- Here is can control the order of overlay of your (WAR, AMP, etc.) 
+								dependencies | NOTE: At least one WAR dependency must be uncompressed first 
+								| NOTE: In order to have a dependency effectively added to the WAR you need 
+								to | explicitly mention it in the overlay section. | NOTE: First-win resource 
+								strategy is used by the WAR plugin -->
 							<overlays>
 								<!-- Current project customizations -->
 								<!-- The Alfresco WAR -->
@@ -284,10 +346,12 @@
 								</goals>
 								<configuration>
 									<tasks>
-										<move todir="${project.build.directory}/${project.artifactId}/WEB-INF/lib">
-											<fileset dir="${project.build.directory}/${project.artifactId}/lib"/>
+										<move
+											todir="${project.build.directory}/${project.artifactId}/WEB-INF/lib">
+											<fileset
+												dir="${project.build.directory}/${project.artifactId}/lib" />
 										</move>
-										<delete dir="${project.build.directory}/${project.artifactId}/lib"/>
+										<delete dir="${project.build.directory}/${project.artifactId}/lib" />
 									</tasks>
 								</configuration>
 							</execution>

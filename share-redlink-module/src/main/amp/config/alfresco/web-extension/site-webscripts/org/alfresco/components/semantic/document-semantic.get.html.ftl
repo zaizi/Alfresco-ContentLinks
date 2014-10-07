@@ -17,11 +17,44 @@
 
 -->
 <#-- Parameters and libs -->
+<@markup id="css" >
+	<#-- CSS Dependencies -->
+	<@link rel="stylesheet" type="text/css" href="${page.url.context}/res/components/semantic/document-semantic.css" group="document-details"/>
+</@>
 <#include "../../include/alfresco-macros.lib.ftl" />
 <#assign el=args.htmlid/>
 
 <#macro printEntityList entityList>
-	<#list entityList as e><div><a class="entityLink" href="${e.uri}">${e.label}</a><div class="data" title="${e.label}"><img class="thumbnail" src="${e.thumbnail}" /><div class="entityData"><div class="abstract">${e.abstract}</div><div class="related"><#if e.related?size &gt; 0><br/><strong>${msg("related")}:</strong><br/><#list e.related as r><a href="document-details?nodeRef=${r.nodeRef}">${r.name}</a><#if r_has_next><br/></#if></#list></#if></div></div></div></div></#list>
+	<#list entityList as e>
+		<div>
+			<a class="entityLink" href="${e.uri}">${e.label}</a>
+			<div class="data" title="${e.label}">
+				<#if e.thumbnail?string=="">
+					<#assign src="${url.context}/res/components/semantic/images/noimage.png" />
+				<#else>
+					<#assign src=e.thumbnail />
+				</#if>
+				<img class="thumbnail" src="${src}" />
+				<div class="entityData">
+					<#if e.abstract?string=="">
+						<#assign abstract=msg("label.abstract") />
+					<#else>
+						<#assign abstract=e.abstract />
+					</#if>
+					<div class="abstract">${abstract}</div>
+					<div class="related">
+						<#if e.related?size &gt; 0>
+							<br/><strong>${msg("related")}:</strong><br/>
+							<#list e.related as r>
+								<a href="document-details?nodeRef=${r.nodeRef}">${r.name}</a>
+								<#if r_has_next><br/></#if>
+							</#list>
+						</#if>
+					</div>
+				</div>
+			</div>
+		</div>
+	</#list>
 </#macro>
 		      
 <#if json?? && json?keys?size==0>

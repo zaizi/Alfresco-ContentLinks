@@ -53,8 +53,8 @@ public class EnhanceContentHandler extends BaseActionHandler
     @Override
     public void prepareForEdit(Map<String, Serializable> actionProps, Map<String, Serializable> repoParams)
     {
-        actionProps.put(PROP_LANGUAGE, (String) repoParams.get(EnhanceContentActionExecuter.PARAM_LANGUAGE_DETECTION));
-        actionProps.put(PROP_ENTITIES, (String) repoParams.get(EnhanceContentActionExecuter.PARAM_ENTITY_EXTRACTION));
+        actionProps.put(PROP_LANGUAGE, repoParams.get(EnhanceContentActionExecuter.PARAM_LANGUAGE_DETECTION));
+        actionProps.put(PROP_ENTITIES, repoParams.get(EnhanceContentActionExecuter.PARAM_ENTITY_EXTRACTION));
     }
 
     @Override
