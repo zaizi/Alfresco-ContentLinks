@@ -11,8 +11,8 @@ The module consists in two components:
 *     Share component: Allows to show the extracted information for each document and perform faceted search over such information
 
 ## Dependencies
-* Alfresco >= 4.2
-* [Redlink Java SDK](http://dev.redlink.io/sdk#java-installation) >= 1.0.0-BETA
+* Alfresco Community 4.2.x
+* [Redlink Java SDK](http://dev.redlink.io/sdk#java-installation) >= 1.2.0-BETA-patched
 
 ## Installation
 * Execute the `mvn clean install` command in the root directory of the project
@@ -38,3 +38,7 @@ In order to test the plugin, do the following:
 * Perform a search using the input box at the top-right of the screen
 * The search results are shown and the extracted information is also shown in the left side of the screen as facets
 * Select/Deselect the facets to trigger a new search filtering the documents by the selected facets
+
+## Caution
+Redlink java SDK 1.2.0-BETA-patched is not public. This dependency only exist in Zaizi Maven Repository.
+To solve it this dependency need to be updated in Redlink Maven Repository.

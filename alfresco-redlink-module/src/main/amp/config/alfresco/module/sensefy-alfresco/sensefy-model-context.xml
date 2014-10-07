@@ -23,7 +23,7 @@
 	<bean id="sensefy.dictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
 		<property name="models">
 			<list>
-				<value>alfresco/module/sensefy/model/sensefy-model.xml</value>
+				<value>alfresco/module/sensefy-alfresco/model/sensefy-model.xml</value>
 			</list>
 		</property>
 	</bean>
